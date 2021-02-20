@@ -7,3 +7,17 @@ body {
   padding: 70px;
   border: 1px red solid;
 }
+button {
+  padding: 10px;
+  font-size: 1.3rem;
+  background-color: transparent;
+  color: white;
+  margin-right: 15px;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+button:hover {
+  color: #21232a;
+  background-color: white;
+}
