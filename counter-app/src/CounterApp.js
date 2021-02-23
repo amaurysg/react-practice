@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const CounterApp = ({value}) => {
 
-  const [num, setNum] = useState(0)
+  const [num, setNum] = useState(0) //[]
 
   const  handleAdd = ()=>{
  
@@ -17,7 +17,7 @@ const CounterApp = ({value}) => {
   }
   const  handleInitial = ()=>{
  
-    setNum(0)
+    setNum(1)
     
   }
 
