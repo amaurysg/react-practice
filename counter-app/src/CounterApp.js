@@ -17,7 +17,7 @@ const CounterApp = ({value}) => {
   }
   const  handleInitial = ()=>{
  
-    setNum(1)
+    setNum(0)
     
   }
 
