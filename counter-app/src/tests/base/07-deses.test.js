@@ -10,6 +10,10 @@ describe('Pruebas con 07', () => {
 
     const [letras, numero] = retornaArreglo()
 
+ /*    console.log(typeof letras)
+    console.log(typeof numero) */
+
+
     expect(letras).toBe('ABC')
     expect(typeof letras).toBe('string')
     expect(numero).toBe(123)
