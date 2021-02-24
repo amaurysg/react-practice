@@ -10,7 +10,7 @@ describe('Pruebas en 02-template-string', () => {
     //Estimulo
      const saludo = getSaludo(nombre)
     
-      expect(saludo).toBe('Hola ' + nombre )
+      expect(saludo).toBe( `Hola ${nombre}`)
   
   })
   //getSaludo debe retornar Hola Julio! si no hay argumentos
@@ -22,6 +22,7 @@ describe('Pruebas en 02-template-string', () => {
      const saludo = getSaludo()
     
       expect(saludo).toBe('Hola Julio')
+
   
       
        })
