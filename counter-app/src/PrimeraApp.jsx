@@ -17,12 +17,16 @@ const saludos = {
   return (
         
        <>
-            {
+
+            <h1>{saludo} </h1>
+            <p>{subtitulo} </p>
+
+         {/*    {
               !user ? 
               <h1>No hay User</h1> 
               :  
               <div>
-                {/* render of objects */}
+              
                 <h1>Welcome {JSON.stringify(saludos,null, 3)} </h1>
                 <h1>Welcome {saludos.names} </h1>
                 <h1> {saludo} </h1>
@@ -33,7 +37,7 @@ const saludos = {
                   <input type="text"/>
                 </form>
               </div>
-            }
+            } */}
          
 
        </> 
@@ -48,7 +52,7 @@ PrimeraApp.propTypes={
 
 //DefaultProps//
 PrimeraApp.defaultProps = {
-  subtitulo : 'subtitulo DEFAULTPROPS'
+  subtitulo : 'Soy subtitulo (default)'
 }
 
 

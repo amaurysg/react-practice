@@ -14,6 +14,8 @@ console.log(saludo)
 //If I want rendering, so i use ReactDOM.render
 
 /* ReactDOM.render(<PrimeraApp saludo='Props saludo'/>, root) */
-
-ReactDOM.render(<CounterApp value={1} />, root)
+/* 
+ReactDOM.render(<CounterApp value={1} />, root) */
 //So, my comments now everything will be in englisj
+
+ReactDOM.render(<PrimeraApp saludo="Hola Amaury" />, root)
