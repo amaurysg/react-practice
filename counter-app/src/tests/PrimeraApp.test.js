@@ -32,9 +32,28 @@ describe('Pruebas Comp <PrimeraApp/>', () => {
   test('PrimeraApp correctamente <PrimeraApp/> ', () => {
 
     const saludo = 'Hola Amaury'
-    const wrapper = shallow(<PrimeraApp saludo={saludo} />)
+    const wrapper = shallow( <PrimeraApp saludo={saludo} />)
+
+    //We expect that the component render ok 
+    expect( wrapper).toMatchSnapshot()
     
   })
+  test('Debe mostrar subtitulo enviado por props ', () => {
+
+    const saludo = "Hola, Amaury"
+    const subTitulo= "Soy un subtitulo"
+    const wrapper = shallow(
+       <PrimeraApp
+        saludo={saludo}
+        subtitulo={subTitulo}
+        />)
+    
+        const textParrafo = wrapper.find('p').text()
+        console.log(textParrafo)
+
+        expect(textParrafo).toBe(subTitulo)
+  })
+
   
   
 

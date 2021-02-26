@@ -18,8 +18,8 @@ const saludos = {
         
        <>
 
-            <h1>{saludo} </h1>
-            <p>{subtitulo} </p>
+            <h1>{saludo} !</h1>
+            <p>{subtitulo}</p>
 
          {/*    {
               !user ? 

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas Comp <PrimeraApp/> PrimeraApp correctamente <PrimeraApp/>  1`] = `
+<Fragment>
+  <h1>
+    Hola Amaury
+     !
+  </h1>
+  <p>
+    Soy subtitulo (default)
+  </p>
+</Fragment>
+`;

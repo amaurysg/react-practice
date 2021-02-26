@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const CounterApp = ({value}) => {
+const CounterApp = ({value=100}) => {
 
-  const [num, setNum] = useState(0) //[]
+  const [num, setNum] = useState(value) //[]
 
   const  handleAdd = ()=>{
  
@@ -17,7 +17,7 @@ const CounterApp = ({value}) => {
   }
   const  handleInitial = ()=>{
  
-    setNum(0)
+    setNum(value)
     
   }
 
