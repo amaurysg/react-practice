@@ -10,3 +10,18 @@ input {
   width: 100%;
   font-size: 1.2rem;
 }
+
+.card-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card {
+  align-content: center;
+  border: 1px solid red;
+
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.card p {
+}

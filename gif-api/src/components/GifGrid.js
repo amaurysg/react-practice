@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import GifGridItem from './GifGridItem'
 
 const GifGrid = ({category}) => {
 
+    //Here test to see utils of useEffect
+  /* const [contador, setcontador] = useState(0) */
+
+  const [img, setImg] = useState([])
+
+
+  useEffect(() => {
+    getGifs()
+  }, [])
+
   const getGifs = async (string)=>{
-    const url = `https://api.giphy.com/v1/gifs/search?q=Rick&limit=10&api_key=BFVFPdUbuJ42nJqNqXTIz00hickTXKrF`
+    const url = `https://api.giphy.com/v1/gifs/search?q=pinkfloyd&limit=10&api_key=BFVFPdUbuJ42nJqNqXTIz00hickTXKrF`
     const response = await fetch(url)
     const {data} = await response.json()
     const gifs = data.map( img => {
@@ -14,15 +25,38 @@ const GifGrid = ({category}) => {
       }
     } )
     console.log(gifs)
-
+    setImg(gifs)
   
   }
 
-  getGifs()
+  /* getGifs() */
 
   return (
-    <div>
+    <div className="card-grid">
         <li>{category}</li>
+
+            {
+              //Tomamos array img(tiene la info) y desestrucutamos (id, title, url)
+              img.map( ({id, title, url}) => {
+                return (
+               <div>
+                    <GifGridItem 
+                      key={id}
+                      id={id}
+                      title={title}
+                      url={url}
+                      /* { ...img }
+                      key={img.id} */
+                     /> 
+                 
+               </div>
+                )
+              }
+               
+              )
+            }
+  
+        
     </div>
   )
 }
