@@ -5,7 +5,7 @@ import GifGrid from './components/GifGrid'
 const GifExpertApp = () => {
 
 
-  const [categories, setCategories] = useState(['Dragon Ball'])
+  const [categories, setCategories] = useState(['Messi'])
   
 /*   const handleAdd = (e)=>{
     //We can use express operato (...), and value to add 
