@@ -5,7 +5,7 @@ import GifGrid from './components/GifGrid'
 const GifExpertApp = () => {
 
 
-  const [categories, setCategories] = useState(['Messi'])
+  const [categories, setCategories] = useState(['Eric Cartman'])
   
 /*   const handleAdd = (e)=>{
     //We can use express operato (...), and value to add 
@@ -19,12 +19,12 @@ const GifExpertApp = () => {
 
   return (
     <div>
-        <h2>Gif Expert</h2>
+        <h2 className="animate__animated animate__slow 5s animate__flash animate__infinite	infinite ">Gif Expert</h2>
 
        {/* Here i add props setCategories */}
         <AddCategory setCategories={setCategories}/>
 
-        <hr/>
+ 
         
         <ol>
           {

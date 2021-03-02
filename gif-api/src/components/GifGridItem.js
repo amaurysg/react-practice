@@ -4,9 +4,9 @@ const GifGridItem = ({id, title, url}) => {
 
   /* console.log(id, title, url) */
   return (
-    <div key={id} className="card" >
+    <div key={id} className="card animate__animated animate__slideInDown" >
       <img src={url} alt={title} />
-        <p >{title}</p>
+        {/* <p >{title}</p> */}
     </div>
   )
 }
