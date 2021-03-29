@@ -1,5 +1,6 @@
 import React from "react";
 import getHeroesByPublisher from "../../selectors/getHeroesByPublisher";
+import HeroCard from "./HeroCard";
 
 //This is component to Renderind
 //Received publisher
@@ -11,11 +12,11 @@ const HeroList = ({ publisher }) => {
 
   //render cont heroes with result of function from above
   return (
-    <ul>
+    <div className="card-columns">
       {heroes.map((hero) => {
-        return <li key={hero.id}>{hero.superhero}</li>;
+        return <HeroCard key={hero.id} {...hero} />;
       })}
-    </ul>
+    </div>
   );
 };
 
