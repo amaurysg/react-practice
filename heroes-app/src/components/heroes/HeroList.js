@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import getHeroesByPublisher from "../../selectors/getHeroesByPublisher";
 import HeroCard from "./HeroCard";
 
@@ -7,7 +7,7 @@ import HeroCard from "./HeroCard";
 
 const HeroList = ({ publisher }) => {
   //Eject function getHero... (publisher)
-  const heroes = getHeroesByPublisher(publisher);
+  const heroes = useMemo(() => getHeroesByPublisher(publisher), [publisher]);
   console.log(heroes);
 
   //render cont heroes with result of function from above
