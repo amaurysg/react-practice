@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router";
+import AuthContext from "../../auth/AuthContext";
+import types from "../../types/types";
 import "./Login.css";
 
 const Login = () => {
+
+  //Now I called dispatch from AuthContext
+  const { dispatch } = useContext(AuthContext)
+
   //call hooks useHistory
   let history = useHistory();
 
@@ -10,7 +16,16 @@ const Login = () => {
     // history.push("/");
     //When do click, so...
     //replace is better than push, but in this case.
+    //Add dispatch
+    dispatch({
+      //remember types.login '[auth] login'
+      type: types.login,
+      payload: {
+        name: 'Amaury'
+      }
+    })
     history.replace("/");
+
   };
 
   return (
