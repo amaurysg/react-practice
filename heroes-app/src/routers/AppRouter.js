@@ -5,6 +5,7 @@ import Login from "../components/login/Login";
 import Navbar from "../components/ui/Navbar";
 import DashboardRoutes from "./DashboardRoutes";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 //initial screen
 const AppRouter = () => {
@@ -17,7 +18,15 @@ const AppRouter = () => {
       <div>
         <Switch>
           {/* Here Login */}
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} /> */}
+
+          {/* Here routePublic, when user writing in path /login redirect 
+          the same actual component */}
+          <PublicRoute
+            exact path="/login"
+            component={Login}
+            isAuthenticated={user.logged}
+          />
           <PrivateRoute
             path="/"
             component={DashboardRoutes}
