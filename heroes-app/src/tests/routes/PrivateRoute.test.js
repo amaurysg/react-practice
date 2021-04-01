@@ -11,6 +11,7 @@ describe('Test in PrivateRoute', () => {
     }
   }
 
+
   Storage.prototype.setItem = jest.fn()
 
   test('Debe mostrar componente si está autenticado y guardar localStorage', () => {
@@ -33,6 +34,29 @@ describe('Test in PrivateRoute', () => {
     expect(localStorage.setItem).toHaveBeenCalledWith('lastPathname', '/marvel')
 
   })
+
+  test('Debe bloquear componente si no esta autenticado', () => {
+    //usamos mount en lugar de shallow, debido a que mount es mas profundo y pueda renderizar el PrivateRoute
+    const wrapper = mount(
+      // para hacer pruebas de routers used MemoryRouter from react-router
+      <MemoryRouter>
+
+        <PrivateRoute
+          isAuthenticated={false}
+          //De esta manera simulamos un component.. es una arrow function que retorna un tag html. en este caso un jsx span
+          component={() => <span></span>}
+          {...props}
+
+        />
+      </MemoryRouter>
+    )
+
+    expect(wrapper.find('span').exists()).toBe(false)
+    // expect(localStorage.setItem).toHaveBeenCalledWith('lastPathname', '/marvel')
+
+
+  })
+
 
 
 })
