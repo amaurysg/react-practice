@@ -28,6 +28,9 @@ const Login = () => {
         name: 'Amaury'
       }
     })
+
+    //those out the function
+
     //lastPathname because is rute saved in localStorage
     history.replace(lastPathname);
 
