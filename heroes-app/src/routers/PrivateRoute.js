@@ -10,6 +10,11 @@ const PrivateRoute = (
   }
 ) => {
 
+  console.log("rest:", rest.location.pathname)
+
+  localStorage.setItem('lastPathname', rest.location.pathname)
+
+
 
   return (
     <Route

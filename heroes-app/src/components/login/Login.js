@@ -6,6 +6,10 @@ import "./Login.css";
 
 const Login = () => {
 
+  const lastPathname = localStorage.getItem('lastPathname') || '/'
+  console.log("last  rute:", lastPathname)
+
+
   //Now I called dispatch from AuthContext
   const { dispatch } = useContext(AuthContext)
 
@@ -24,7 +28,8 @@ const Login = () => {
         name: 'Amaury'
       }
     })
-    history.replace("/");
+    //lastPathname because is rute saved in localStorage
+    history.replace(lastPathname);
 
   };
 
