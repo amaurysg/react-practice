@@ -7,8 +7,8 @@ const Navbar = () => {
   const { user, dispatch } = useContext(AuthContext)
   const history = useHistory()
 
-  console.log(" login:", user)
-  console.log("dispatch:", dispatch)
+  // console.log(" login:", user)
+  // console.log("dispatch:", dispatch)
 
   const handleLogout = (e) => {
     e.preventDefault();
