@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 const PrivateRoute = (
   { isAuthenticated,
     component: Component,
+    //...rest lo que sea que le mande
     ...rest
   }
 ) => {
@@ -18,6 +19,7 @@ const PrivateRoute = (
 
   return (
     <Route
+      // aca es recibido
       {...rest}
       component={
         (props) => (isAuthenticated)
