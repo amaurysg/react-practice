@@ -5,7 +5,9 @@ import DashboardRoutes from "../routers/DashboardRoutes"
 
 describe('Test en DashBoard', () => {
 
+  //defined a const to simulated
   const contextValues = {
+    //here used fn() to simulated fn.
     dispatch: jest.fn(),
     user: {
       logged: true,
@@ -14,7 +16,7 @@ describe('Test en DashBoard', () => {
   }
 
   test('should ', () => {
-
+    //here used mount because this rearch more deep.
     const wrapper = mount(
       //para trabajar con routes usamos MemoryRouter
       <MemoryRouter>
@@ -27,6 +29,7 @@ describe('Test en DashBoard', () => {
     )
 
     expect(wrapper).toMatchSnapshot()
+    //here review Juanito inside html
     expect(wrapper.find('.text-info').text().trim()).toBe('Juanito')
 
   })

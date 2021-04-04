@@ -10,8 +10,9 @@ const Navbar = () => {
   // console.log(" login:", user)
   // console.log("dispatch:", dispatch)
 
-  const handleLogout = (e) => {
-    e.preventDefault();
+  const handleLogout = () => {
+    // e.preventDefault();
+    console.log('test prop(onClick)()')
     dispatch({
       type: types.logout,
     })
