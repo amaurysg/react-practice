@@ -14,7 +14,7 @@ const HeroScreen = () => {
   const heroe = useMemo(() => getHeroesById(heroeId), [heroeId]);
   //here called my function by Id and assigned heroeId
 
-  console.log('heroe', heroe, 'heroeId', heroeId,);
+  // console.log('heroe', heroe, 'heroeId', heroeId,);
 
   const {
     id,

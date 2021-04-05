@@ -1,5 +1,5 @@
 import { mount } from "enzyme"
-import { MemoryRouter, Route } from "react-router"
+import { MemoryRouter, Route, Router } from "react-router"
 import HeroScreen from "../../../components/heroes/HeroScreen"
 
 describe('Test in <HeroScreen/> simulacion de URLs ', () => {
@@ -7,6 +7,17 @@ describe('Test in <HeroScreen/> simulacion de URLs ', () => {
 
 
   //create const historyMock by default
+  const historyMock = {
+    push: jest.fn(),
+    goBack: jest.fn(),
+    replace: jest.fn(),
+    location: {},
+    listen: jest.fn(),
+    createHref: jest.fn(),
+    length: 10,
+
+  }
+
 
   //reset of mocks
   afterEach(() => {
@@ -14,27 +25,6 @@ describe('Test in <HeroScreen/> simulacion de URLs ', () => {
   })
 
   test('Debe mostrar componente redirect si no hay arg en la URL', () => {
-    const historyMock = {
-      push: jest.fn(),
-      goBack: jest.fn(),
-      replace: jest.fn(),
-      location: {},
-      listen: jest.fn(),
-      createHref: jest.fn(),
-
-    }
-
-    const history = {
-      push: jest.fn(),
-      replace: jest.fn(),
-      location: {},
-      listen: jest.fn(),
-      createHref: jest.fn(),
-      goBack: jest.fn(),
-      length: 10
-
-    }
-
 
     const wrapper = mount(
       //here send initialEntries={['/hero']} because need initialEntries
@@ -59,6 +49,7 @@ describe('Test in <HeroScreen/> simulacion de URLs ', () => {
       location: {},
       listen: jest.fn(),
       createHref: jest.fn(),
+      length: 10,
 
     }
 
@@ -77,7 +68,42 @@ describe('Test in <HeroScreen/> simulacion de URLs ', () => {
 
   })
 
-  test('debe regresar a la pantalla anterior con push', () => {
+  // test('debe regresar a la pantalla anterior con push', () => {
+  //   const historyMock = {
+  //     push: jest.fn(),
+  //     goBack: jest.fn(),
+  //     replace: jest.fn(),
+  //     location: {},
+  //     listen: jest.fn(),
+  //     createHref: jest.fn(),
+  //     length: 1
+
+  //   }
+
+  //   const wrapper = mount(
+  //     //here send initialEntries={['/hero']} because need initialEntries
+  //     <MemoryRouter initialEntries={['/hero/marvel-spider']}>
+  //       <Router history={historyMock} >
+  //         {/* <Route path="/hero/:heroeId" component={() => < HeroScreen history={historyMock} />} /> */}
+  //         <Route path="/hero/:heroeId">
+
+  //           <HeroScreen />
+  //         </Route>
+  //       </Router>
+  //     </MemoryRouter>
+
+  //   )
+  //   console.log("print:", wrapper.find('.btn'))
+  //   wrapper.find('button').prop('onClick')()
+
+  //   expect(historyMock.push).toHaveBeenCalledWith('/');
+  //   expect(historyMock.goBack).not.toHaveBeenCalled()
+
+
+  // })
+
+
+  test('Debe de llamar el redirect si hero no existe ', () => {
     const historyMock = {
       push: jest.fn(),
       goBack: jest.fn(),
@@ -85,42 +111,10 @@ describe('Test in <HeroScreen/> simulacion de URLs ', () => {
       location: {},
       listen: jest.fn(),
       createHref: jest.fn(),
-
-    }
-
-    const wrapper = mount(
-      //here send initialEntries={['/hero']} because need initialEntries
-      <MemoryRouter initialEntries={['/hero/marvel-spider']}>
-        {/* //here send history with values from history */}
-        <Route
-          path="/hero/:heroeId"
-          component={() => <HeroScreen history={historyMock} />}
-        />
-      </MemoryRouter>
-
-    )
-
-    wrapper.find('button').prop('onClick')()
-
-    expect(history.push).toHaveBeenCalledTimes();
-    expect(history.goBack).not.toHaveBeenCalled()
-
-
-  })
-
-
-  test('Debe de llamar el redirect si hero no existe ', () => {
-    const history = {
-      push: jest.fn(),
-
-      replace: jest.fn(),
-      location: {},
-      listen: jest.fn(),
-      createHref: jest.fn(),
-      goBack: jest.fn(),
       length: 1
 
     }
+
 
     const wrapper = mount(
       //here send initialEntries={['/hero']} because need initialEntries
@@ -128,7 +122,7 @@ describe('Test in <HeroScreen/> simulacion de URLs ', () => {
         {/* //here send history with values from history */}
         <Route
           path="/hero/:heroeId"
-          component={() => <HeroScreen history={history} />}
+          component={() => <HeroScreen history={historyMock} />}
         />
       </MemoryRouter>
 
