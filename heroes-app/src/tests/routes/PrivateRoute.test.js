@@ -31,6 +31,7 @@ describe('Test in PrivateRoute', () => {
     )
 
     expect(wrapper.find('span').exists()).toBe(true)
+    //advice, see in file lastPathname
     expect(localStorage.setItem).toHaveBeenCalledWith('lastPathname', '/marvel')
 
   })

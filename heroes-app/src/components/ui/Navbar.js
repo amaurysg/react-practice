@@ -17,6 +17,7 @@ const Navbar = () => {
       type: types.logout,
     })
 
+    //in jest test compared this history.replace with historyMocks 
     history.replace("/login")
 
   }
@@ -59,7 +60,7 @@ const Navbar = () => {
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul className="navbar-nav ml-auto">
-
+          {/* //in  jest test used class text-info  */}
           <span className="nav-item nav-link text-info">{user.name}</span>
 
           <button

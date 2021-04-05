@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { Redirect, useHistory, useParams } from "react-router";
+import { heroes } from "../../data/heroes";
 import getHeroesById from "../../selectors/getHeroesById";
 
 const HeroScreen = () => {
@@ -13,7 +14,7 @@ const HeroScreen = () => {
   const heroe = useMemo(() => getHeroesById(heroeId), [heroeId]);
   //here called my function by Id and assigned heroeId
 
-  console.log(heroe);
+  console.log('heroe', heroe, 'heroeId', heroeId,);
 
   const {
     id,
@@ -22,15 +23,15 @@ const HeroScreen = () => {
     alter_ego,
     first_appearance,
     characters,
-  } = heroe;
+  } = heroes;
 
   if (!heroe) {
-    return <Redirect to="/" />;
+    return <Redirect to='/' />;
   }
 
   const handleReturn = () => {
     if (history.length <= 2) {
-      history.push("/");
+      history.push('/');
     } else {
       history.goBack();
     }
@@ -49,22 +50,22 @@ const HeroScreen = () => {
         <h3>{superhero}</h3>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
-            {" "}
+
             <b>Alter ego: {alter_ego}</b>{" "}
           </li>
           <li className="list-group-item">
-            {" "}
+
             <b>Publisher: {publisher}</b>{" "}
           </li>
           <li className="list-group-item">
-            {" "}
+
             <b>First Appearance: {first_appearance}</b>{" "}
           </li>
         </ul>
         <h5>Characters</h5>
         <p>{characters}</p>
         <button className="btn btn-outline-info" onClick={handleReturn}>
-          {" "}
+
           Return
         </button>
       </div>
