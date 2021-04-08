@@ -6,7 +6,7 @@ import AppRouters from './routers/AppRouters';
 
 
 ReactDOM.render(
-  <AppRouters />, document.getElementById('root')
+  <JournalApp />, document.getElementById('root')
 );
 
 
