@@ -9,6 +9,7 @@ import types from '../types/types';
 // }
 
 const authReducer = (state = {}, action) => {
+  console.log(action.type)
   switch (action.type) {
     case types.login:
       return {
