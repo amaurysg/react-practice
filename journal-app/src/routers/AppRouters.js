@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +15,9 @@ const AppRouters = () => {
 
   const dispatch = useDispatch()
 
+  const [checking, setChecking] = useState(true)
+  const [isLogged, setIsLogged] = useState(false)
+
   //Aqui vamos observar qué user está
   // y vamos a mantener su estado aún despues de hacer refresh
   useEffect(() => {
@@ -26,10 +29,20 @@ const AppRouters = () => {
       if (user?.uid) {
         //dispatch de funcion login
         dispatch(login(user.uid, user.displayName))
+        setIsLogged(true)
       }
+      setChecking(false)
     })
 
-  }, [dispatch])
+
+  }, [dispatch, setChecking, setIsLogged])
+
+
+  if (checking) {
+    return (
+      <h1>Espere...</h1>
+    )
+  }
 
   return (
 
