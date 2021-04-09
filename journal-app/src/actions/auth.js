@@ -2,6 +2,7 @@ import types from "../types/types"
 import { firebase, googleAuthProvider } from '../firebase/config'
 import { finishLoading, startLoading } from "./ui"
 import { useDispatch } from "react-redux"
+import Swal from 'sweetalert2'
 
 //En si el thunk es cuando devuelves una función y no un objeto y es 
 //usada para hacer dispatch a acciones sincronas despues de que se 
@@ -21,11 +22,13 @@ export const startLoginEmailPassword = (email, password) => {
           login(user.uid, user.displayName)
         )
         dispatch(finishLoading())
+        console.log(user)
+        Swal.fire('Log In', `Bienvenido ${(user.displayName).charAt(0).toUpperCase() + (user.displayName).slice(1)}`, 'success')
       })
       .catch(err => {
         console.log(err.message)
         dispatch(finishLoading())
-
+        Swal.fire('Error', err.message, 'error')
       })
 
   }
@@ -64,6 +67,8 @@ export const startRegister = (email, password, name) => {
       })
       .catch(e => {
         console.log(e)
+        Swal.fire('Error', e.message, 'error')
+
       })
   }
 }
