@@ -4,12 +4,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import authReducer from '../reducers/authReducer'
+import uiReducer from '../reducers/uiReducer'
+
 
 
 
 //En esta constante almacenamos los reducers
 const reducers = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  ui: uiReducer
 })
 
 //creamos esta const como ayuda para poder ejecutar la extension devtools

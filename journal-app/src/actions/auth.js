@@ -21,7 +21,7 @@ export const startLoginEmailPassword = (email, password) => {
 }
 
 //Es una funcion asincrona llamar a auth google por eso 
-//hacemos un return con dispatch
+//hacemos un return con dispatch de thunk middleware
 export const startGoogleLogin = () => {
   return (dispatch) => {
     firebase.auth().signInWithPopup(googleAuthProvider)

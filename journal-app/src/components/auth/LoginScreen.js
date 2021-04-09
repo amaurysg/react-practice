@@ -53,7 +53,7 @@ const LoginScreen = () => {
           onChange={handleInputChange}
         />
         <button
-          className="btn btn-primary btn-block"
+          className="btn btn-primary btn-block mb-5"
           type="submit"
         // disabled={true}
         >
@@ -73,7 +73,7 @@ const LoginScreen = () => {
         </div>
         <div className="auth__social-networks">
           {/* <p> Login social networks</p> */}
-          <div className="google-btn" onClick={handleLoginGoogle} >
+          <div className="google-btn" >
             <div className="google-icon-wrapper">
               <img className="google-icon" src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png" alt="google button" />
             </div>
