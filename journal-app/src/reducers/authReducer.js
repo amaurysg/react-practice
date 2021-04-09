@@ -7,9 +7,9 @@ import types from '../types/types';
 //   uid: 638dhdhdue8eg7,
 //   name: 'Amaury'
 // }
-
+//First REDUCER
 const authReducer = (state = {}, action) => {
-  console.log(action.type)
+  // console.log(action.type)
   switch (action.type) {
     case types.login:
       return {
