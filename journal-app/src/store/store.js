@@ -12,12 +12,14 @@ const reducers = combineReducers({
   auth: authReducer
 })
 
+//creamos esta const como ayuda para poder ejecutar la extension devtools
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 //creamos la store y agregamos la const reducers que internamente
 //tiene los reducers.
 const store = createStore(
   reducers,
+  //const para devtools que encierra nuestro applyMiddleware
   composeEnhancers(applyMiddleware(thunk))
 )
 
