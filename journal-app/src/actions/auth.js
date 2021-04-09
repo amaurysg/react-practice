@@ -81,4 +81,18 @@ const login = (uid, displayName) => {
   }
 }
 
+//Funcion Logout asincrona, necesita return y callback with dispatch
+export const startLogout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut()
+    dispatch(logout())
+  }
+}
+
+export const logout = () => ({
+  type: types.logout,
+})
+
+
+
 export default login
