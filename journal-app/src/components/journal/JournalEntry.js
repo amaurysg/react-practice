@@ -1,24 +1,35 @@
 import React from 'react'
+import moment from 'moment'
 
-const JournalEntry = () => {
+const JournalEntry = ({ id, date, title, body, url }) => {
+
+  console.log(id, date, title, body, url)
+
+  const nodeDate = moment(date)
+  console.log(nodeDate)
+
   return (
     <div className="journal__entry pointer">
-      <div className="journal__entry-picture"
-        style={{
-          backgroundSize: 'cover',
-          backgroundImage: 'url(https://i.pinimg.com/736x/e9/86/87/e98687512e7a6df281b6482a553b6fc7.jpg)'
-        }}>
 
-      </div>
+      { url &&
+        <div className="journal__entry-picture"
+          style={{
+            backgroundSize: 'cover',
+            backgroundImage: `url(${url}))`
+          }}>
+
+        </div>
+
+      }
 
       <div className="journal__entry-body">
-        <p className="journal__entry-title" >Tour Animals</p>
-        <p className="journal__entry-content">Lorem ipsum, dolor sit amet consectetur</p>
+        <p className="journal__entry-title" >{title}</p>
+        <p className="journal__entry-content">{body}</p>
       </div>
 
       <div className="journal__entry-date-box">
-        <span>Monday</span>
-        <h4>28</h4>
+        <span>{nodeDate.format('dddd')}</span>
+        <h4>{nodeDate.format('Do')}</h4>
       </div>
     </div>
   )
