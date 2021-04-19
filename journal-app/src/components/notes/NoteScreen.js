@@ -1,7 +1,23 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { useForm } from '../../hooks/useForm'
 import NotesAppBar from './NotesAppBar'
 
 const NoteScreen = () => {
+
+  //1- referencia a note active 
+  //traemos notes del state from redux
+  const { active: note } = useSelector(state => state.notes)
+  // console.log(note)
+  const [values, handleInputChange, reset] = useForm(note)
+
+  console.log(values)
+
+  const { body, title } = values
+  console.log(body, title)
+
+
+
   return (
     <div className="notes__main-screen">
       <NotesAppBar />
@@ -11,17 +27,24 @@ const NoteScreen = () => {
           type="text"
           placeholder="Some awesome title"
           className="notes__title-input"
+          value={title}
+          onChange={handleInputChange}
 
         />
         <textarea
           placeholder="what happened today"
           className="notes__textarea"
+          value={body}
+          onChange={handleInputChange}
         >
         </textarea>
+        {
+          (note.url) &&
+          <div className="notes__image">
+            <img src="https://i.pinimg.com/736x/e9/86/87/e98687512e7a6df281b6482a553b6fc7.jpg" alt="imagen" />
+          </div>
 
-        <div className="notes__image">
-          <img src="https://i.pinimg.com/736x/e9/86/87/e98687512e7a6df281b6482a553b6fc7.jpg" alt="imagen" />
-        </div>
+        }
 
       </div>
     </div>
