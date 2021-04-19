@@ -12,6 +12,8 @@ import { useDispatch } from 'react-redux';
 import login from '../actions/auth';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import { loadNotes } from '../helpers/loadNotes';
+import { setNotes } from '../actions/notes';
 
 const AppRouters = () => {
 
@@ -25,13 +27,17 @@ const AppRouters = () => {
   useEffect(() => {
     //aqui creamos un observer
     //tipo de objeto que se puede disparar mas de una vez 
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
       // console.log(user) //{info user}
       //si user tiene info...
       if (user?.uid) {
         //dispatch de funcion login
         dispatch(login(user.uid, user.displayName))
         setIsLogged(true)
+
+        //ejecutamos loadNotes (datos de las notas)
+        const notes = await loadNotes(user.uid)
+        dispatch(setNotes(notes))
       } else {
         setIsLogged(false)
       }

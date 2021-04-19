@@ -25,13 +25,19 @@ export const startNewNote = () => {
     dispatch(activeNote(doc.id, newNote))
   }
 }
-
+//Queremos activar note
 export const activeNote = (id, note) => ({
+  //definimos el type y el payload
   type: types.notesActive,
   payload: {
     id,
     ...note,
   }
-
-
 })
+
+//notes 
+export const setNotes = (notes) => ({
+  type: types.notesLoad,
+  payload: notes
+})
+//de aqui nos vamos a notesReducer para saber que hacer
