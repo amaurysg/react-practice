@@ -12,8 +12,7 @@ import { useDispatch } from 'react-redux';
 import login from '../actions/auth';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import { loadNotes } from '../helpers/loadNotes';
-import { setNotes } from '../actions/notes';
+import { startLoadingNotes } from '../actions/notes';
 
 const AppRouters = () => {
 
@@ -36,8 +35,9 @@ const AppRouters = () => {
         setIsLogged(true)
 
         //ejecutamos loadNotes (datos de las notas)
-        const notes = await loadNotes(user.uid)
-        dispatch(setNotes(notes))
+        dispatch(startLoadingNotes(user.uid))
+
+
       } else {
         setIsLogged(false)
       }
