@@ -35,7 +35,7 @@ export const activeNote = (id, note) => ({
     ...note,
   }
 })
-
+//optimización para no ejecutar esto en appRouters
 export const startLoadingNotes = (uid) => {
   return async (dispatch) => {
     const notes = await loadNotes(uid)
